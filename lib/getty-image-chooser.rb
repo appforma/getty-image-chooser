@@ -3,7 +3,8 @@ module GettyImageChooser
   class << self
     attr_accessor :system_id, :system_pwd, :user_name, :user_pwd
   end
-    
+  
+  require 'gic/getty'
   require 'gic/api_helper'
   require 'gic/view_helper'
         

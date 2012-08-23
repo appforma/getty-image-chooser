@@ -1,0 +1,22 @@
+/* HOVER STYLES */
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+	top:100px;
+	left:200px;
+	width:750px;
+	height:500px;
+}
+
+div#pop-up .getty-image-holder {
+	float:left;
+	width:170px;
+	height:100px;
+	padding:5px;
+}

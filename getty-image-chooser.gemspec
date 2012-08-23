@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "getty-image-chooser.gemspec",
     "lib/getty-image-chooser.rb",
     "lib/gic/api_helper.rb",
+    "lib/gic/getty.rb",
     "lib/gic/view_helper.rb",
     "src/jquery.getty-image-chooser.js",
     "test/helper.rb",

@@ -8,7 +8,7 @@ class GettyController < ApplicationController
   
   private
     def initialize_api_helper
-      @api_helper = GettyImageChooser::ApiGHelper.new(
+      @api_helper = GettyImageChooser::ApiHelper.new(
         GettyImageChooser.system_id,
         GettyImageChooser.system_pwd,
         GettyImageChooser.user_name,
