@@ -19,11 +19,18 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "app/controllers/getty_controller.rb",
+    "config/routes.rb",
+    "getty-image-chooser.gemspec",
     "lib/getty-image-chooser.rb",
+    "lib/gic/api_helper.rb",
+    "lib/gic/view_helper.rb",
+    "src/jquery.getty-image-chooser.js",
     "test/helper.rb",
     "test/test_getty-image-chooser.rb"
   ]

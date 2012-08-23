@@ -24,7 +24,7 @@ module GettyImageChooser
   end
     
   def self.raise_unconfigured_exception
-    raise NotConfigured.new("No configuration provided for Shark Apps. Call SharkApps.load_sharkapps_yaml in an initializer")
+    raise NotConfigured.new("No configuration provided for GettyImageChooser. Call GettyImageChooser.load_getty_yaml in an initializer")
   end
   
   def self.configuration=(hash)
