@@ -1,5 +1,7 @@
 class GettyController < ApplicationController
   before_filter :initialize_api_helper
+  skip_before_filter :ensure_canvas_connected_to_facebook
+  
   def search_images
     @api_helper.create_session
     response = @api_helper.search_for_images(1, params["search"])

@@ -14,7 +14,10 @@
 		//initialize the popup launcher
 		$(this).click(function() {
 			$('div#pop-up').show();
+			$('.bg_trans').show();
 		});	
+		$(document.body).append('<div class="bg_trans"></div>');
+		$('#pop-up').append('<a href="#" class="close_getty">X</a>');
 		$('#pop-up').append('<h3><i>Enter a search term and click submit</i></h3>');
 		//initialize the search form
 		$('#pop-up').append('<input type="text" id="getty-search-text"/>');
@@ -22,6 +25,13 @@
 		//initialize the results panel
 		$('#pop-up').append('<div id="getty-image-results"></div>');
 		var parent = this;
+		
+		//callback for closing the popup
+		$("#pop-up a.close_getty").click(function() {
+			$('div#pop-up').hide();
+			$('.bg_trans').hide();
+		});
+		
 		//add a call back on the submit button
 		$('#getty-search-submit').click(function(){
 			$.ajax({
