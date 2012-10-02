@@ -14,11 +14,29 @@ div#pop-up {
 	z-index: 10000000;
 }
 
+#jquery-loader.blue-with-image-2{
+	z-index: 20000000 !important;
+}
+
 div#pop-up .getty-image-holder {
 	float:left;
 	width:170px;
-	height:100px;
+	height:140px;
 	padding:5px;
+	text-align: center;
+}
+
+div#pop-up .getty-image-holder .getty_image_wrapper{
+	height:120px;
+	text-align: center;
+	vertical-align: bottom;
+	display: table-cell;
+	width: 170px;
+}
+
+div#pop-up .getty-image-holder img{
+	max-height: 120px;
+	margin: 0;
 }
 
 .bg_trans{
