@@ -72,7 +72,7 @@
 						$('#getty-image-results').append('<div id="getty-image-' + i + '" class="getty-image-holder"></div>');
 						$('#getty-image-' + i + '').append('<div class="getty_image_wrapper"></div>');
 						$('#getty-image-' + i + ' .getty_image_wrapper').append('<a href="#getty-image-link' + i + '" class="getty_image_link"><img src="' + data[i]['UrlThumb'] + '"/></a>');
-						$('#getty-image-' + i + '').append('<div class="getty_image_buttons"><a href="' + data[i]['UrlPreview'] + '" target="_blank">Full Size</a><a href="#" class="save_getty" alt="'+ data[i]['UrlPreview'] +'">Preview</a></div>');
+						$('#getty-image-' + i + '').append('<div class="getty_image_buttons"><a style="float:left" href="' + data[i]['UrlPreview'] + '" target="_blank">Full Size</a><a style="float:right" href="#" class="save_getty" alt="'+ data[i]['UrlPreview'] +'">Preview</a></div>');
 	        }
 					
 					$('.save_getty').click(function () {

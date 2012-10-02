@@ -14,7 +14,7 @@ div#pop-up {
 	z-index: 10000000;
 }
 
-#jquery-loader.blue-with-image-2{
+#jquery-loader.blue-with-image-2, #jquery-loader-background{
 	z-index: 20000000 !important;
 }
 
