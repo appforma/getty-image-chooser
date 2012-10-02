@@ -32,14 +32,14 @@ module GettyImageChooser
     
     # token received from CreateSession/RenewSession API call
     def search_for_images(page, phrase)
-      item_start_number = page_start(page, 16)
+      item_start_number = page_start(page, 12)
       puts "token = #{@token}"
       request = {
           :RequestHeader => { :Token => @token},
           :SearchForImages2RequestBody => {
               :Query => { :SearchPhrase => phrase},
               :ResultOptions => {
-                  :ItemCount => 16,
+                  :ItemCount => 12,
                   :ItemStartNumber => item_start_number
               }
           }

@@ -5,6 +5,7 @@ class GettyController < ApplicationController
   def search_images
     @api_helper.create_session
     response = @api_helper.search_for_images(1, params["search"])
+    puts "response = #{response}"
     render :json => response.to_json
   end
   
