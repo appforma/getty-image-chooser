@@ -9,6 +9,13 @@ class GettyController < ApplicationController
     render :json => response.to_json
   end
   
+  def download_image
+    @api_helper.create_session
+    response = @api_helper.get_largest_image_download_authorization(params["image_id"])
+    puts "response = #{response}"
+    render :json => response.to_json
+  end
+  
   private
     def initialize_api_helper
       @api_helper = GettyImageChooser::ApiHelper.new(
