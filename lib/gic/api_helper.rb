@@ -51,10 +51,10 @@ module GettyImageChooser
       images = response["SearchForImagesResult"]["Images"]
     end
     
-    def get_largest_image_download_authorization(token ,image_id)
+    def get_largest_image_download_authorization(image_id)
       request = {
           :RequestHeader => {
-              :Token => token,
+              :Token => @token,
               :CoordinationId => "MyUniqueId"
           },
           :GetLargestImageDownloadAuthorizationsRequestBody =>
