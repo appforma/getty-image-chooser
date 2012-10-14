@@ -5,6 +5,7 @@ module GettyImageChooser
     def initialize(system_id, system_pwd, user_name, user_pwd)
       @session_endpoint = "https://connect.gettyimages.com/v1/session/CreateSession"
       @image_search_endpoint = "https://connect.gettyimages.com/v1/search/SearchForImages"
+      @download_endpoint = "http://connect.gettyimages.com/v1/download/GetLargestImageDownloadAuthorizations"
       @system_id = system_id
       @system_pwd = system_pwd
       @user_name = user_name
@@ -48,6 +49,23 @@ module GettyImageChooser
 
       #status = response["ResponseHeader"]["Status"]
       images = response["SearchForImagesResult"]["Images"]
+    end
+    
+    def get_largest_image_download_authorization(token ,image_id)
+      request = {
+          :RequestHeader => {
+              :Token => token,
+              :CoordinationId => "MyUniqueId"
+          },
+          :GetLargestImageDownloadAuthorizationsRequestBody =>
+              { :Images =>
+                  [{
+                    :ImageId => image_id
+                  }]
+              }
+      }
+  
+      response = post_json(request, @download_endpoint)
     end
     
     def page_start(page, size)
