@@ -5,7 +5,8 @@ module GettyImageChooser
     def initialize(system_id, system_pwd, user_name, user_pwd)
       @session_endpoint = "https://connect.gettyimages.com/v1/session/CreateSession"
       @image_search_endpoint = "https://connect.gettyimages.com/v1/search/SearchForImages"
-      @download_endpoint = "http://connect.gettyimages.com/v1/download/GetLargestImageDownloadAuthorizations"
+      @download_auth_endpoint = "http://connect.gettyimages.com/v1/download/GetLargestImageDownloadAuthorizations"
+      @download_endpoint = "https://connect.gettyimages.com/v1/download/CreateDownloadRequest"
       @system_id = system_id
       @system_pwd = system_pwd
       @user_name = user_name
@@ -65,6 +66,23 @@ module GettyImageChooser
               }
       }
   
+      response = post_json(request, @download_auth_endpoint)
+    end
+    
+    def create_download_request(download_token)
+      #Secure token is required for create download request
+      request = {
+          :RequestHeader => {
+              :Token => @token,
+              :CoordinationId => "MyUniqueId"
+          },
+          :CreateDownloadRequestBody =>
+              { :DownloadItems =>
+                    [{
+                         :DownloadToken => download_token
+                     }]
+              }
+      }
       response = post_json(request, @download_endpoint)
     end
     

@@ -13,7 +13,12 @@ class GettyController < ApplicationController
     @api_helper.create_session
     response = @api_helper.get_largest_image_download_authorization(params["image_id"])
     puts "response = #{response}"
-    render :json => response.to_json
+    download_token = response["GetLargestImageDownloadAuthorizationsResult"]["Images"][0]["Authorizations"][0]["DownloadToken"]
+    puts "Download_token = #{download_token}"
+    res = @api_helper.create_download_request(download_token)
+
+    
+    render :json => res.to_json
   end
   
   private
