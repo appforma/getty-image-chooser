@@ -73,7 +73,7 @@ module GettyImageChooser
       #Secure token is required for create download request
       request = {
           :RequestHeader => {
-              :Token => @token,
+              :Token => @secure_token,
               :CoordinationId => "MyUniqueId"
           },
           :CreateDownloadRequestBody =>
