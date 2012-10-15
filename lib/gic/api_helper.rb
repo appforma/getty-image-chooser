@@ -7,6 +7,7 @@ module GettyImageChooser
       @image_search_endpoint = "https://connect.gettyimages.com/v1/search/SearchForImages"
       @download_auth_endpoint = "http://connect.gettyimages.com/v1/download/GetLargestImageDownloadAuthorizations"
       @download_endpoint = "https://connect.gettyimages.com/v1/download/CreateDownloadRequest"
+      @details_endpoint = "https://connect.gettyimages.com/v1/search/GetImageDetails"
       @system_id = system_id
       @system_pwd = system_pwd
       @user_name = user_name
@@ -85,6 +86,27 @@ module GettyImageChooser
       }
       response = post_json(request, @download_endpoint)
     end
+    
+    def get_image_details(assetIds)
+      request = {
+          :RequestHeader => {
+              :Token => @token,
+              :CoordinationId => "MyUniqueId"
+          },
+          :GetImageDetailsRequestBody => {
+              :CountryCode => "USA",
+              :ImageIds => assetIds,
+              :Language => "en-us"
+          }
+      }
+  
+      response = post_json(request, @details_endpoint)
+  
+      # status = response["ResponseHeader"]["Status"]
+      images = response["GetImageDetailsResult"]["Images"]
+      puts images
+    end
+    
     
     def page_start(page, size)
       size * (page - 1) + 1
