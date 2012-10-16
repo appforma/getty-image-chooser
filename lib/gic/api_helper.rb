@@ -104,7 +104,7 @@ module GettyImageChooser
   
       # status = response["ResponseHeader"]["Status"]
       images = response["GetImageDetailsResult"]["Images"]
-      puts images
+      puts "images = #{images}"
     end
     
     
