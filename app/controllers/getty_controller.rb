@@ -7,7 +7,8 @@ class GettyController < ApplicationController
   
   def search_images
     @api_helper.create_session
-    response = @api_helper.search_for_images(1, params["search"])
+    page = (params[:page].to_i > 1)? params[:page].to_i : 1
+    response = @api_helper.search_for_images(page, params["search"])
     puts "response = #{response}"
     render :json => response.to_json
   end
@@ -29,7 +30,9 @@ class GettyController < ApplicationController
     getty = GettyImage.new
     
     
-    #open(image_url)
+    getty.image = open(image_url)
+    getty.save
+    
     render :json => res.to_json
    
   end

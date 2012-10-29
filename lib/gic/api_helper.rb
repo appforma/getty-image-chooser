@@ -50,7 +50,7 @@ module GettyImageChooser
       response = post_json(request, @image_search_endpoint)
 
       #status = response["ResponseHeader"]["Status"]
-      images = response["SearchForImagesResult"]["Images"]
+      images = response["SearchForImagesResult"]
     end
     
     def get_largest_image_download_authorization(image_id)
